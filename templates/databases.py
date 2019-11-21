@@ -31,4 +31,23 @@ edit_product(1 , "something" , "be creative and describe it however you want")
 def delete_product(product_name):
 	session.query(Product).filter_by(name=product_name).delete()
 	session.commit()
-delete_product("something")	
+delete_product("something")
+
+def query_all():
+	Product= session.query(Product).all()
+	return Product
+print(query_all())
+
+def query_by_id(Id):
+	Product = session.query(Product).filter_by(id=Id).first()
+	return Product
+print (query_by_id("something"))
+
+
+def Add_To_Cart(ProductID):
+	Product_object = Cart(ProductID=ProductID
+	   )
+	session.add(product_object)
+	session.commit()
+
+			
